@@ -30,6 +30,12 @@ void push(Value value) {
     ASSERT(vm.stackTop - vm.stack < STACK_MAX, "Stack overflow!");
 }
 
+static bool isFalsey(Value value) {
+    return IS_NIL(value)
+        || (IS_BOOL(value) && !AS_BOOL(value))
+        || (IS_NUMBER(value) && AS_NUMBER(value) == 0);
+}
+
 Value pop() {
     ASSERT(vm.stack != vm.stackTop, "No value on stack!");
     vm.stackTop--;
@@ -37,7 +43,7 @@ Value pop() {
 }
 
 Value peek(int i) {
-    ASSERT(vm.stack - vm.stackTop > i, "Cannot find value on stack!");
+    // ASSERT(vm.stack - vm.stackTop + 1> i, "Cannot find value on stack!");
     return vm.stackTop[-i - 1];
 }
 
@@ -85,12 +91,23 @@ static InterpretResult run() {
             case OP_SUBTRACT: BINARY_OP(NUMBER_VAL, -); break;
             case OP_MULTIPLY: BINARY_OP(NUMBER_VAL, *); break;
             case OP_DIVIDE:   BINARY_OP(NUMBER_VAL, /); break;
+            case OP_GREATER:  BINARY_OP(BOOL_VAL, >); break;
+            case OP_LESS:     BINARY_OP(BOOL_VAL, <); break;
+            case OP_EQUAL: {
+                Value b = pop();
+                Value a = pop();
+                push(BOOL_VAL(valuesEqual(a, b)));
+                break;
+            }
             case OP_NEGATE:
                 if (!IS_NUMBER(peek(0))) {
                     runtimeError("Can only negate numbers.");
                     return INTERPRET_RUNTIME_ERROR;
                 }
                 push(NUMBER_VAL(-AS_NUMBER(pop())));
+                break;
+            case OP_NOT:
+                push(BOOL_VAL(isFalsey(pop())));
                 break;
             case OP_CONSTANT_LONG: {
                 Value constant = READ_CONSTANT_LONG();

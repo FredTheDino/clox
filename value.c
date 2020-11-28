@@ -24,6 +24,19 @@ void writeValueArray(ValueArray* arr, Value value) {
     arr->values[arr->count++] = value;
 }
 
+bool valuesEqual(Value a, Value b) {
+    if (a.type != b.type) return false;
+
+    switch (a.type) {
+        case VAL_BOOL:    return AS_BOOL(a) == AS_BOOL(b);
+        case VAL_NIL:     return true;
+        case VAL_NUMBER:  return AS_NUMBER(a) == AS_NUMBER(b);
+        default:
+            ASSERT(false, "UNREACHABLE");
+            return false;
+    }
+}
+
 void printValue(Value value) {
     if (IS_NUMBER(value)) {
         printf("%g", AS_NUMBER(value));

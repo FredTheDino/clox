@@ -50,6 +50,10 @@ int disassembleInstruction(Chunk* chunk, int offset) {
         SIMPLE(OP_MULTIPLY);
         SIMPLE(OP_DIVIDE);
         SIMPLE(OP_NEGATE);
+        SIMPLE(OP_NOT);
+        SIMPLE(OP_LESS);
+        SIMPLE(OP_GREATER);
+        SIMPLE(OP_EQUAL);
         case OP_CONSTANT:
             return constantInstruction("OP_CONSTANT", chunk, offset);
         case OP_CONSTANT_LONG:

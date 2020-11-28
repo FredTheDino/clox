@@ -4,163 +4,234 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-ASSERT	common.h	26;"	d
+ASSERT	common.h	28;"	d
+AS_BOOL	value.h	23;"	d
+AS_NUMBER	value.h	24;"	d
 BBLUE	common.h	16;"	d
 BCYAN	common.h	20;"	d
 BGREEN	common.h	12;"	d
-BINARY_OP	vm.c	38;"	d	file:
+BINARY_OP	vm.c	66;"	d	file:
 BLUE	common.h	15;"	d
 BMAGENTA	common.h	18;"	d
+BOOL_VAL	value.h	26;"	d
 BRED	common.h	10;"	d
 BYELLOW	common.h	14;"	d
-CFLAGS	Makefile	/^CFLAGS=-std=c11 -pedantic$/;"	m
 CHECK	scanner.c	141;"	d	file:
 CHECK	scanner.c	142;"	d	file:
 CHECK	scanner.c	171;"	d	file:
 CYAN	common.h	19;"	d
-Chunk	chunk.h	/^} Chunk;$/;"	t	typeref:struct:__anon2
-DEBUG_TRACE_EXECUTION	common.h	35;"	d
+Chunk	chunk.h	/^} Chunk;$/;"	t	typeref:struct:__anon6
+DEBUG_PRINT_CODE	common.h	39;"	d
+DEBUG_TRACE_EXECUTION	common.h	38;"	d
 DUAL_TOKEN	scanner.c	192;"	d	file:
 FREE_ARRAY	memory.h	8;"	d
 GREEN	common.h	11;"	d
 GROW_ARRAY	memory.h	11;"	d
 GROW_CAPACITY	memory.h	5;"	d
-INTERPRET_COMPILE_ERROR	vm.h	/^    INTERPRET_COMPILE_ERROR,$/;"	e	enum:__anon8
-INTERPRET_OK	vm.h	/^    INTERPRET_OK,$/;"	e	enum:__anon8
-INTERPRET_RUNTIME_ERROR	vm.h	/^    INTERPRET_RUNTIME_ERROR,$/;"	e	enum:__anon8
-InterpretResult	vm.h	/^} InterpretResult;$/;"	t	typeref:enum:__anon8
+INTERPRET_COMPILE_ERROR	vm.h	/^    INTERPRET_COMPILE_ERROR,$/;"	e	enum:__anon14
+INTERPRET_OK	vm.h	/^    INTERPRET_OK,$/;"	e	enum:__anon14
+INTERPRET_RUNTIME_ERROR	vm.h	/^    INTERPRET_RUNTIME_ERROR,$/;"	e	enum:__anon14
+IS_BOOL	value.h	19;"	d
+IS_NIL	value.h	20;"	d
+IS_NUMBER	value.h	21;"	d
+InterpretResult	vm.h	/^} InterpretResult;$/;"	t	typeref:enum:__anon14
 MAGENTA	common.h	17;"	d
-OP_ADD	chunk.h	/^    OP_ADD,$/;"	e	enum:__anon1
-OP_CONSTANT	chunk.h	/^    OP_CONSTANT,$/;"	e	enum:__anon1
-OP_CONSTANT_LONG	chunk.h	/^    OP_CONSTANT_LONG,$/;"	e	enum:__anon1
-OP_DIVIDE	chunk.h	/^    OP_DIVIDE,$/;"	e	enum:__anon1
-OP_MULTIPLY	chunk.h	/^    OP_MULTIPLY,$/;"	e	enum:__anon1
-OP_NEGATE	chunk.h	/^    OP_NEGATE,$/;"	e	enum:__anon1
-OP_RETURN	chunk.h	/^    OP_RETURN,$/;"	e	enum:__anon1
-OP_SUBTRACT	chunk.h	/^    OP_SUBTRACT,$/;"	e	enum:__anon1
-OpCode	chunk.h	/^} OpCode;$/;"	t	typeref:enum:__anon1
-READ_BYTE	vm.c	32;"	d	file:
-READ_BYTE	vm.c	74;"	d	file:
-READ_CONSTANT	vm.c	33;"	d	file:
-READ_CONSTANT	vm.c	75;"	d	file:
-READ_CONSTANT_LONG	vm.c	34;"	d	file:
+NIL_VAL	value.h	27;"	d
+NUMBER_VAL	value.h	28;"	d
+OP_ADD	chunk.h	/^    OP_ADD,$/;"	e	enum:__anon5
+OP_CONSTANT	chunk.h	/^    OP_CONSTANT,$/;"	e	enum:__anon5
+OP_CONSTANT_LONG	chunk.h	/^    OP_CONSTANT_LONG,$/;"	e	enum:__anon5
+OP_DIVIDE	chunk.h	/^    OP_DIVIDE,$/;"	e	enum:__anon5
+OP_EQUAL	chunk.h	/^    OP_EQUAL,$/;"	e	enum:__anon5
+OP_FALSE	chunk.h	/^    OP_FALSE,$/;"	e	enum:__anon5
+OP_GREATER	chunk.h	/^    OP_GREATER,$/;"	e	enum:__anon5
+OP_LESS	chunk.h	/^    OP_LESS,$/;"	e	enum:__anon5
+OP_MULTIPLY	chunk.h	/^    OP_MULTIPLY,$/;"	e	enum:__anon5
+OP_NEGATE	chunk.h	/^    OP_NEGATE,$/;"	e	enum:__anon5
+OP_NIL	chunk.h	/^    OP_NIL,$/;"	e	enum:__anon5
+OP_NOT	chunk.h	/^    OP_NOT,$/;"	e	enum:__anon5
+OP_RETURN	chunk.h	/^    OP_RETURN,$/;"	e	enum:__anon5
+OP_SUBTRACT	chunk.h	/^    OP_SUBTRACT,$/;"	e	enum:__anon5
+OP_TRUE	chunk.h	/^    OP_TRUE,$/;"	e	enum:__anon5
+OpCode	chunk.h	/^} OpCode;$/;"	t	typeref:enum:__anon5
+PREC_AND	compiler.c	/^    PREC_AND,         \/\/ and$/;"	e	enum:__anon2	file:
+PREC_ASSIGNMENT	compiler.c	/^    PREC_ASSIGNMENT,  \/\/ =$/;"	e	enum:__anon2	file:
+PREC_CALL	compiler.c	/^    PREC_CALL,        \/\/ . ()$/;"	e	enum:__anon2	file:
+PREC_COMPARISON	compiler.c	/^    PREC_COMPARISON,  \/\/ < > <= >=$/;"	e	enum:__anon2	file:
+PREC_EQUALITY	compiler.c	/^    PREC_EQUALITY,    \/\/ == !=$/;"	e	enum:__anon2	file:
+PREC_FACTOR	compiler.c	/^    PREC_FACTOR,      \/\/ * \/$/;"	e	enum:__anon2	file:
+PREC_NONE	compiler.c	/^    PREC_NONE,$/;"	e	enum:__anon2	file:
+PREC_OR	compiler.c	/^    PREC_OR,          \/\/ or$/;"	e	enum:__anon2	file:
+PREC_PRIMARY	compiler.c	/^    PREC_PRIMARY$/;"	e	enum:__anon2	file:
+PREC_TERM	compiler.c	/^    PREC_TERM,        \/\/ + -$/;"	e	enum:__anon2	file:
+PREC_UNARY	compiler.c	/^    PREC_UNARY,       \/\/ ! -$/;"	e	enum:__anon2	file:
+ParseFn	compiler.c	/^typedef void (*ParseFn)();$/;"	t	file:
+ParseRule	compiler.c	/^} ParseRule;$/;"	t	typeref:struct:__anon3	file:
+Parser	compiler.c	/^} Parser;$/;"	t	typeref:struct:__anon1	file:
+Precedence	compiler.c	/^} Precedence;$/;"	t	typeref:enum:__anon2	file:
+READ_BYTE	vm.c	127;"	d	file:
+READ_BYTE	vm.c	59;"	d	file:
+READ_CONSTANT	vm.c	128;"	d	file:
+READ_CONSTANT	vm.c	60;"	d	file:
+READ_CONSTANT_LONG	vm.c	61;"	d	file:
 RED	common.h	9;"	d
 RESET	common.h	21;"	d
 SIMPLE	debug.c	39;"	d	file:
-SIMPLE	debug.c	59;"	d	file:
+SIMPLE	debug.c	66;"	d	file:
 SIMPLE_TOKEN	scanner.c	191;"	d	file:
 STACK_MAX	vm.h	6;"	d
 STR	common.h	24;"	d
-Scanner	scanner.c	/^} Scanner;$/;"	t	typeref:struct:__anon3	file:
-TOKEN_AND	scanner.h	/^    TOKEN_AND, TOKEN_CLASS, TOKEN_ELSE, TOKEN_FALSE,$/;"	e	enum:__anon4
-TOKEN_BANG	scanner.h	/^    TOKEN_BANG, TOKEN_BANG_EQUAL,$/;"	e	enum:__anon4
-TOKEN_BANG_EQUAL	scanner.h	/^    TOKEN_BANG, TOKEN_BANG_EQUAL,$/;"	e	enum:__anon4
-TOKEN_CLASS	scanner.h	/^    TOKEN_AND, TOKEN_CLASS, TOKEN_ELSE, TOKEN_FALSE,$/;"	e	enum:__anon4
-TOKEN_COMMA	scanner.h	/^    TOKEN_COMMA, TOKEN_DOT, TOKEN_MINUS, TOKEN_PLUS,$/;"	e	enum:__anon4
-TOKEN_DOT	scanner.h	/^    TOKEN_COMMA, TOKEN_DOT, TOKEN_MINUS, TOKEN_PLUS,$/;"	e	enum:__anon4
-TOKEN_ELSE	scanner.h	/^    TOKEN_AND, TOKEN_CLASS, TOKEN_ELSE, TOKEN_FALSE,$/;"	e	enum:__anon4
-TOKEN_EOF	scanner.h	/^    TOKEN_EOF,$/;"	e	enum:__anon4
-TOKEN_EQUAL	scanner.h	/^    TOKEN_EQUAL, TOKEN_EQUAL_EQUAL,$/;"	e	enum:__anon4
-TOKEN_EQUAL_EQUAL	scanner.h	/^    TOKEN_EQUAL, TOKEN_EQUAL_EQUAL,$/;"	e	enum:__anon4
-TOKEN_ERROR	scanner.h	/^    TOKEN_ERROR,$/;"	e	enum:__anon4
-TOKEN_FALSE	scanner.h	/^    TOKEN_AND, TOKEN_CLASS, TOKEN_ELSE, TOKEN_FALSE,$/;"	e	enum:__anon4
-TOKEN_FOR	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon4
-TOKEN_FUN	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon4
-TOKEN_GREATER	scanner.h	/^    TOKEN_GREATER, TOKEN_GREATER_EQUAL,$/;"	e	enum:__anon4
-TOKEN_GREATER_EQUAL	scanner.h	/^    TOKEN_GREATER, TOKEN_GREATER_EQUAL,$/;"	e	enum:__anon4
-TOKEN_IDENTIFIER	scanner.h	/^    TOKEN_IDENTIFIER, TOKEN_STRING, TOKEN_NUMBER,$/;"	e	enum:__anon4
-TOKEN_IF	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon4
-TOKEN_LEFT_BRACE	scanner.h	/^    TOKEN_LEFT_BRACE, TOKEN_RIGHT_BRACE,$/;"	e	enum:__anon4
-TOKEN_LEFT_PAREN	scanner.h	/^    TOKEN_LEFT_PAREN, TOKEN_RIGHT_PAREN,$/;"	e	enum:__anon4
-TOKEN_LESS	scanner.h	/^    TOKEN_LESS, TOKEN_LESS_EQUAL,$/;"	e	enum:__anon4
-TOKEN_LESS_EQUAL	scanner.h	/^    TOKEN_LESS, TOKEN_LESS_EQUAL,$/;"	e	enum:__anon4
-TOKEN_MINUS	scanner.h	/^    TOKEN_COMMA, TOKEN_DOT, TOKEN_MINUS, TOKEN_PLUS,$/;"	e	enum:__anon4
-TOKEN_NIL	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon4
-TOKEN_NUMBER	scanner.h	/^    TOKEN_IDENTIFIER, TOKEN_STRING, TOKEN_NUMBER,$/;"	e	enum:__anon4
-TOKEN_OR	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon4
-TOKEN_PLUS	scanner.h	/^    TOKEN_COMMA, TOKEN_DOT, TOKEN_MINUS, TOKEN_PLUS,$/;"	e	enum:__anon4
-TOKEN_PRINT	scanner.h	/^    TOKEN_PRINT, TOKEN_RETURN, TOKEN_SUPER, TOKEN_THIS,$/;"	e	enum:__anon4
-TOKEN_RETURN	scanner.h	/^    TOKEN_PRINT, TOKEN_RETURN, TOKEN_SUPER, TOKEN_THIS,$/;"	e	enum:__anon4
-TOKEN_RIGHT_BRACE	scanner.h	/^    TOKEN_LEFT_BRACE, TOKEN_RIGHT_BRACE,$/;"	e	enum:__anon4
-TOKEN_RIGHT_PAREN	scanner.h	/^    TOKEN_LEFT_PAREN, TOKEN_RIGHT_PAREN,$/;"	e	enum:__anon4
-TOKEN_SEMICOLON	scanner.h	/^    TOKEN_SEMICOLON, TOKEN_SLASH, TOKEN_STAR,$/;"	e	enum:__anon4
-TOKEN_SLASH	scanner.h	/^    TOKEN_SEMICOLON, TOKEN_SLASH, TOKEN_STAR,$/;"	e	enum:__anon4
-TOKEN_STAR	scanner.h	/^    TOKEN_SEMICOLON, TOKEN_SLASH, TOKEN_STAR,$/;"	e	enum:__anon4
-TOKEN_STRING	scanner.h	/^    TOKEN_IDENTIFIER, TOKEN_STRING, TOKEN_NUMBER,$/;"	e	enum:__anon4
-TOKEN_SUPER	scanner.h	/^    TOKEN_PRINT, TOKEN_RETURN, TOKEN_SUPER, TOKEN_THIS,$/;"	e	enum:__anon4
-TOKEN_THIS	scanner.h	/^    TOKEN_PRINT, TOKEN_RETURN, TOKEN_SUPER, TOKEN_THIS,$/;"	e	enum:__anon4
-TOKEN_TRUE	scanner.h	/^    TOKEN_TRUE, TOKEN_VAR, TOKEN_WHILE,$/;"	e	enum:__anon4
-TOKEN_VAR	scanner.h	/^    TOKEN_TRUE, TOKEN_VAR, TOKEN_WHILE,$/;"	e	enum:__anon4
-TOKEN_WHILE	scanner.h	/^    TOKEN_TRUE, TOKEN_VAR, TOKEN_WHILE,$/;"	e	enum:__anon4
-Token	scanner.h	/^} Token;$/;"	t	typeref:struct:__anon5
-TokenType	scanner.h	/^} TokenType;$/;"	t	typeref:enum:__anon4
-VM	vm.h	/^} VM;$/;"	t	typeref:struct:__anon7
-Value	value.h	/^typedef double Value;$/;"	t
-ValueArray	value.h	/^} ValueArray;$/;"	t	typeref:struct:__anon6
+Scanner	scanner.c	/^} Scanner;$/;"	t	typeref:struct:__anon4	file:
+TOKEN_AND	scanner.h	/^    TOKEN_AND, TOKEN_CLASS, TOKEN_ELSE, TOKEN_FALSE,$/;"	e	enum:__anon7
+TOKEN_BANG	scanner.h	/^    TOKEN_BANG, TOKEN_BANG_EQUAL,$/;"	e	enum:__anon7
+TOKEN_BANG_EQUAL	scanner.h	/^    TOKEN_BANG, TOKEN_BANG_EQUAL,$/;"	e	enum:__anon7
+TOKEN_CLASS	scanner.h	/^    TOKEN_AND, TOKEN_CLASS, TOKEN_ELSE, TOKEN_FALSE,$/;"	e	enum:__anon7
+TOKEN_COMMA	scanner.h	/^    TOKEN_COMMA, TOKEN_DOT, TOKEN_MINUS, TOKEN_PLUS,$/;"	e	enum:__anon7
+TOKEN_DOT	scanner.h	/^    TOKEN_COMMA, TOKEN_DOT, TOKEN_MINUS, TOKEN_PLUS,$/;"	e	enum:__anon7
+TOKEN_ELSE	scanner.h	/^    TOKEN_AND, TOKEN_CLASS, TOKEN_ELSE, TOKEN_FALSE,$/;"	e	enum:__anon7
+TOKEN_EOF	scanner.h	/^    TOKEN_EOF,$/;"	e	enum:__anon7
+TOKEN_EQUAL	scanner.h	/^    TOKEN_EQUAL, TOKEN_EQUAL_EQUAL,$/;"	e	enum:__anon7
+TOKEN_EQUAL_EQUAL	scanner.h	/^    TOKEN_EQUAL, TOKEN_EQUAL_EQUAL,$/;"	e	enum:__anon7
+TOKEN_ERROR	scanner.h	/^    TOKEN_ERROR,$/;"	e	enum:__anon7
+TOKEN_FALSE	scanner.h	/^    TOKEN_AND, TOKEN_CLASS, TOKEN_ELSE, TOKEN_FALSE,$/;"	e	enum:__anon7
+TOKEN_FOR	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon7
+TOKEN_FUN	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon7
+TOKEN_GREATER	scanner.h	/^    TOKEN_GREATER, TOKEN_GREATER_EQUAL,$/;"	e	enum:__anon7
+TOKEN_GREATER_EQUAL	scanner.h	/^    TOKEN_GREATER, TOKEN_GREATER_EQUAL,$/;"	e	enum:__anon7
+TOKEN_IDENTIFIER	scanner.h	/^    TOKEN_IDENTIFIER, TOKEN_STRING, TOKEN_NUMBER,$/;"	e	enum:__anon7
+TOKEN_IF	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon7
+TOKEN_LEFT_BRACE	scanner.h	/^    TOKEN_LEFT_BRACE, TOKEN_RIGHT_BRACE,$/;"	e	enum:__anon7
+TOKEN_LEFT_PAREN	scanner.h	/^    TOKEN_LEFT_PAREN, TOKEN_RIGHT_PAREN,$/;"	e	enum:__anon7
+TOKEN_LESS	scanner.h	/^    TOKEN_LESS, TOKEN_LESS_EQUAL,$/;"	e	enum:__anon7
+TOKEN_LESS_EQUAL	scanner.h	/^    TOKEN_LESS, TOKEN_LESS_EQUAL,$/;"	e	enum:__anon7
+TOKEN_MINUS	scanner.h	/^    TOKEN_COMMA, TOKEN_DOT, TOKEN_MINUS, TOKEN_PLUS,$/;"	e	enum:__anon7
+TOKEN_NIL	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon7
+TOKEN_NUMBER	scanner.h	/^    TOKEN_IDENTIFIER, TOKEN_STRING, TOKEN_NUMBER,$/;"	e	enum:__anon7
+TOKEN_OR	scanner.h	/^    TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,$/;"	e	enum:__anon7
+TOKEN_PLUS	scanner.h	/^    TOKEN_COMMA, TOKEN_DOT, TOKEN_MINUS, TOKEN_PLUS,$/;"	e	enum:__anon7
+TOKEN_PRINT	scanner.h	/^    TOKEN_PRINT, TOKEN_RETURN, TOKEN_SUPER, TOKEN_THIS,$/;"	e	enum:__anon7
+TOKEN_RETURN	scanner.h	/^    TOKEN_PRINT, TOKEN_RETURN, TOKEN_SUPER, TOKEN_THIS,$/;"	e	enum:__anon7
+TOKEN_RIGHT_BRACE	scanner.h	/^    TOKEN_LEFT_BRACE, TOKEN_RIGHT_BRACE,$/;"	e	enum:__anon7
+TOKEN_RIGHT_PAREN	scanner.h	/^    TOKEN_LEFT_PAREN, TOKEN_RIGHT_PAREN,$/;"	e	enum:__anon7
+TOKEN_SEMICOLON	scanner.h	/^    TOKEN_SEMICOLON, TOKEN_SLASH, TOKEN_STAR,$/;"	e	enum:__anon7
+TOKEN_SLASH	scanner.h	/^    TOKEN_SEMICOLON, TOKEN_SLASH, TOKEN_STAR,$/;"	e	enum:__anon7
+TOKEN_STAR	scanner.h	/^    TOKEN_SEMICOLON, TOKEN_SLASH, TOKEN_STAR,$/;"	e	enum:__anon7
+TOKEN_STRING	scanner.h	/^    TOKEN_IDENTIFIER, TOKEN_STRING, TOKEN_NUMBER,$/;"	e	enum:__anon7
+TOKEN_SUPER	scanner.h	/^    TOKEN_PRINT, TOKEN_RETURN, TOKEN_SUPER, TOKEN_THIS,$/;"	e	enum:__anon7
+TOKEN_THIS	scanner.h	/^    TOKEN_PRINT, TOKEN_RETURN, TOKEN_SUPER, TOKEN_THIS,$/;"	e	enum:__anon7
+TOKEN_TRUE	scanner.h	/^    TOKEN_TRUE, TOKEN_VAR, TOKEN_WHILE,$/;"	e	enum:__anon7
+TOKEN_VAR	scanner.h	/^    TOKEN_TRUE, TOKEN_VAR, TOKEN_WHILE,$/;"	e	enum:__anon7
+TOKEN_WHILE	scanner.h	/^    TOKEN_TRUE, TOKEN_VAR, TOKEN_WHILE,$/;"	e	enum:__anon7
+Token	scanner.h	/^} Token;$/;"	t	typeref:struct:__anon8
+TokenType	scanner.h	/^} TokenType;$/;"	t	typeref:enum:__anon7
+VAL_BOOL	value.h	/^    VAL_BOOL,$/;"	e	enum:__anon9
+VAL_NIL	value.h	/^    VAL_NIL,$/;"	e	enum:__anon9
+VAL_NUMBER	value.h	/^    VAL_NUMBER,$/;"	e	enum:__anon9
+VM	vm.h	/^} VM;$/;"	t	typeref:struct:__anon13
+Value	value.h	/^} Value;$/;"	t	typeref:struct:__anon10
+ValueArray	value.h	/^} ValueArray;$/;"	t	typeref:struct:__anon12
+ValueType	value.h	/^} ValueType;$/;"	t	typeref:enum:__anon9
 YELLOW	common.h	13;"	d
 _STR	common.h	23;"	d
+__assert_failed	main.c	/^void __assert_failed() {$/;"	f
 addConstant	chunk.c	/^int addConstant(Chunk* chunk, Value value) {$/;"	f
+advance	compiler.c	/^static void advance() {$/;"	f	file:
 advance	scanner.c	/^static char advance() {$/;"	f	file:
-capacity	chunk.h	/^    uint32_t count, capacity;$/;"	m	struct:__anon2
-capacity	value.h	/^    int capacity;$/;"	m	struct:__anon6
+as	value.h	/^    } as;$/;"	m	struct:__anon10	typeref:union:__anon10::__anon11
+binary	compiler.c	/^static void binary() {$/;"	f	file:
+boolean	value.h	/^        bool boolean;$/;"	m	union:__anon10::__anon11
+capacity	chunk.h	/^    uint32_t count, capacity;$/;"	m	struct:__anon6
+capacity	value.h	/^    int capacity;$/;"	m	struct:__anon12
 checkKeyword	scanner.c	/^static TokenType checkKeyword(int len, const char* str, TokenType t) {$/;"	f	file:
-chunk	vm.h	/^    Chunk* chunk;$/;"	m	struct:__anon7
-code	chunk.h	/^    uint8_t* code;$/;"	m	struct:__anon2
-col	scanner.c	/^    int col;$/;"	m	struct:__anon3	file:
-compile	compiler.c	/^void compile(const char* source) {$/;"	f
+chunk	vm.h	/^    Chunk* chunk;$/;"	m	struct:__anon13
+code	chunk.h	/^    uint8_t* code;$/;"	m	struct:__anon6
+col	scanner.c	/^    int col;$/;"	m	struct:__anon4	file:
+compile	compiler.c	/^bool compile(const char* source, Chunk* chunk) {$/;"	f
+compilingChunk	compiler.c	/^Chunk* compilingChunk;$/;"	v
 constantInstruction	debug.c	/^static int constantInstruction(const char* name, Chunk *chunk, int offset) {$/;"	f	file:
-constants	chunk.h	/^    ValueArray constants;$/;"	m	struct:__anon2
-count	chunk.h	/^    uint32_t count, capacity;$/;"	m	struct:__anon2
-count	value.h	/^    int count;$/;"	m	struct:__anon6
-current	scanner.c	/^    const char* current;$/;"	m	struct:__anon3	file:
+constants	chunk.h	/^    ValueArray constants;$/;"	m	struct:__anon6
+consume	compiler.c	/^static void consume(TokenType type, const char* message) {$/;"	f	file:
+count	chunk.h	/^    uint32_t count, capacity;$/;"	m	struct:__anon6
+count	value.h	/^    int count;$/;"	m	struct:__anon12
+current	compiler.c	/^    Token current;$/;"	m	struct:__anon1	file:
+current	scanner.c	/^    const char* current;$/;"	m	struct:__anon4	file:
+currentChunk	compiler.c	/^static Chunk* currentChunk() {$/;"	f	file:
 disassembleChunk	debug.c	/^void disassembleChunk(Chunk* chunk, const char* name) {$/;"	f
 disassembleInstruction	debug.c	/^int disassembleInstruction(Chunk* chunk, int offset) {$/;"	f
+emitByte	compiler.c	/^static void emitByte(uint8_t byte) {$/;"	f	file:
+emitBytes	compiler.c	/^static void emitBytes(uint8_t a, uint8_t b) {$/;"	f	file:
+emitConstant	compiler.c	/^static void emitConstant(Value value) {$/;"	f	file:
+emitReturn	compiler.c	/^static void emitReturn() {$/;"	f	file:
+endCompile	compiler.c	/^static void endCompile() {$/;"	f	file:
+errorAt	compiler.c	/^static void errorAt(Token* token, const char* message) {$/;"	f	file:
+errorAtCurrent	compiler.c	/^static void errorAtCurrent(const char* message) {$/;"	f	file:
 errorToken	scanner.c	/^static Token errorToken(const char* msg) {$/;"	f	file:
+expression	compiler.c	/^static void expression() {$/;"	f	file:
 freeChunk	chunk.c	/^void freeChunk(Chunk* chunk) {$/;"	f
 freeVM	vm.c	/^void freeVM() {$/;"	f
 freeValueArray	value.c	/^void freeValueArray(ValueArray* arr) {$/;"	f
+getRule	compiler.c	/^static ParseRule* getRule(TokenType type) {$/;"	f	file:
+grouping	compiler.c	/^static void grouping() {$/;"	f	file:
+hadError	compiler.c	/^    bool hadError;$/;"	m	struct:__anon1	file:
 identifier	scanner.c	/^static Token identifier() {$/;"	f	file:
 identifierType	scanner.c	/^static TokenType identifierType() {$/;"	f	file:
+infix	compiler.c	/^    ParseFn infix;$/;"	m	struct:__anon3	file:
 initChunk	chunk.c	/^void initChunk(Chunk* chunk) {$/;"	f
 initScanner	scanner.c	/^void initScanner(const char* source) {$/;"	f
 initVM	vm.c	/^void initVM() {$/;"	f
 initValueArray	value.c	/^void initValueArray(ValueArray* arr) {$/;"	f
 interpret	vm.c	/^InterpretResult interpret(const char* source) {$/;"	f
-ip	vm.h	/^    uint8_t *ip;$/;"	m	struct:__anon7
+ip	vm.h	/^    uint8_t *ip;$/;"	m	struct:__anon13
 isAlpha	scanner.c	/^static bool isAlpha(char c) {$/;"	f	file:
 isAtEnd	scanner.c	/^static bool isAtEnd() {$/;"	f	file:
 isDigit	scanner.c	/^static bool isDigit(char c) {$/;"	f	file:
-length	scanner.h	/^    int length;$/;"	m	struct:__anon5
-line	scanner.c	/^    int line;$/;"	m	struct:__anon3	file:
-line	scanner.h	/^    int line;$/;"	m	struct:__anon5
-line_start	scanner.c	/^    const char* line_start;$/;"	m	struct:__anon3	file:
-lines	chunk.h	/^    int* lines;$/;"	m	struct:__anon2
+isFalsey	vm.c	/^static bool isFalsey(Value value) {$/;"	f	file:
+length	scanner.h	/^    int length;$/;"	m	struct:__anon8
+line	scanner.c	/^    int line;$/;"	m	struct:__anon4	file:
+line	scanner.h	/^    int line;$/;"	m	struct:__anon8
+line_start	scanner.c	/^    const char* line_start;$/;"	m	struct:__anon4	file:
+lines	chunk.h	/^    int* lines;$/;"	m	struct:__anon6
+literal	compiler.c	/^static void literal() {$/;"	f	file:
 main	main.c	/^int main(int argc, const char* argv[]) {$/;"	f
+makeConstant	compiler.c	/^static uint8_t makeConstant(Value value) {$/;"	f	file:
 makeToken	scanner.c	/^static Token makeToken(TokenType type) {$/;"	f	file:
 match	scanner.c	/^static char match(char c) {$/;"	f	file:
+number	compiler.c	/^static void number() {$/;"	f	file:
 number	scanner.c	/^static Token number() {$/;"	f	file:
+number	value.h	/^        double number;$/;"	m	union:__anon10::__anon11
+panicMode	compiler.c	/^    bool panicMode;$/;"	m	struct:__anon1	file:
+parsePrecedence	compiler.c	/^static void parsePrecedence(Precedence precedence) {$/;"	f	file:
+parser	compiler.c	/^Parser parser;$/;"	v
 peek	scanner.c	/^static char peek() {$/;"	f	file:
+peek	vm.c	/^Value peek(int i) {$/;"	f
 peekNext	scanner.c	/^static char peekNext() {$/;"	f	file:
 pop	vm.c	/^Value pop() {$/;"	f
+precedence	compiler.c	/^    Precedence precedence;$/;"	m	struct:__anon3	file:
+prefix	compiler.c	/^    ParseFn prefix;$/;"	m	struct:__anon3	file:
+previous	compiler.c	/^    Token previous;$/;"	m	struct:__anon1	file:
 printValue	value.c	/^void printValue(Value value) {$/;"	f
 push	vm.c	/^void push(Value value) {$/;"	f
 readFile	main.c	/^static char* readFile(const char* path) {$/;"	f	file:
 reallocate	memory.c	/^void* reallocate(void* ptr, size_t olds, size_t news) {$/;"	f
 repl	main.c	/^static void repl() {$/;"	f	file:
 resetStack	vm.c	/^static void resetStack() {$/;"	f	file:
+rules	compiler.c	/^ParseRule rules[] = {$/;"	v
 run	vm.c	/^static InterpretResult run() {$/;"	f	file:
 runFile	main.c	/^static void runFile(const char* path) {$/;"	f	file:
+runtimeError	vm.c	/^static void runtimeError(const char* format, ...) {$/;"	f	file:
 scanToken	scanner.c	/^Token scanToken() {$/;"	f
 scanner	scanner.c	/^Scanner scanner;$/;"	v
 simpleInstruction	debug.c	/^static int simpleInstruction(const char* name, int offset) {$/;"	f	file:
 skipWhitespace	scanner.c	/^static void skipWhitespace() {$/;"	f	file:
-stack	vm.h	/^    Value stack[STACK_MAX];$/;"	m	struct:__anon7
-stackTop	vm.h	/^    Value *stackTop;$/;"	m	struct:__anon7
-start	scanner.c	/^    const char* start;$/;"	m	struct:__anon3	file:
-start	scanner.h	/^    const char* start;$/;"	m	struct:__anon5
+stack	vm.h	/^    Value stack[STACK_MAX];$/;"	m	struct:__anon13
+stackTop	vm.h	/^    Value *stackTop;$/;"	m	struct:__anon13
+start	scanner.c	/^    const char* start;$/;"	m	struct:__anon4	file:
+start	scanner.h	/^    const char* start;$/;"	m	struct:__anon8
 string	scanner.c	/^static Token string() {$/;"	f	file:
-type	scanner.h	/^    TokenType type;$/;"	m	struct:__anon5
-values	value.h	/^    Value* values;$/;"	m	struct:__anon6
+type	scanner.h	/^    TokenType type;$/;"	m	struct:__anon8
+type	value.h	/^    ValueType type;$/;"	m	struct:__anon10
+unary	compiler.c	/^static void unary() {$/;"	f	file:
+values	value.h	/^    Value* values;$/;"	m	struct:__anon12
 vm	vm.c	/^VM vm;$/;"	v
 writeChunk	chunk.c	/^void writeChunk(Chunk* chunk, uint8_t byte, int line) {$/;"	f
 writeConstant	chunk.c	/^void writeConstant(Chunk* chunk, Value value, int line) {$/;"	f
