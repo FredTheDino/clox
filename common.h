@@ -31,3 +31,5 @@
         printf("\n"); \
         exit(1); \
     }
+
+#define DEBUG_TRACE_EXECUTION
