@@ -23,13 +23,17 @@
 #define _STR(s) #s
 #define STR(s) _STR(s)
 
+void __assert_failed();
+
 #define ASSERT(expr, ...) \
     if ((expr) == 0) { \
         printf(RED "A " RESET "%s", __func__); \
         printf(" <" BLUE __FILE__ RESET ":" BLUE STR(__LINE__) RESET "> "); \
         printf(__VA_ARGS__); \
         printf("\n"); \
+        __assert_failed(); \
         exit(1); \
     }
 
 #define DEBUG_TRACE_EXECUTION
+#define DEBUG_PRINT_CODE

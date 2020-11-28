@@ -14,7 +14,9 @@ void initChunk(Chunk* chunk) {
 void freeChunk(Chunk* chunk) {
     FREE_ARRAY(uint8_t, chunk->code, chunk->capacity);
     FREE_ARRAY(int, chunk->lines, chunk->capacity);
-    freeValueArray(&chunk->constants);
+    if (chunk->constants.capacity) {
+        freeValueArray(&chunk->constants);
+    }
     initChunk(chunk);
 }
 

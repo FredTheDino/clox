@@ -5,7 +5,7 @@
 
 void* reallocate(void* ptr, size_t olds, size_t news) {
     if (news == 0) {
-        assert(ptr);
+        ASSERT(ptr, "Trying to free NULL!");
         free(ptr);
         return NULL;
     }

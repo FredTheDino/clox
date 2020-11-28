@@ -41,6 +41,9 @@ int disassembleInstruction(Chunk* chunk, int offset) {
 
     uint8_t instruction = chunk->code[offset];
     switch (instruction) {
+        SIMPLE(OP_NIL);
+        SIMPLE(OP_TRUE);
+        SIMPLE(OP_FALSE);
         SIMPLE(OP_RETURN);
         SIMPLE(OP_ADD);
         SIMPLE(OP_SUBTRACT);

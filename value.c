@@ -25,5 +25,15 @@ void writeValueArray(ValueArray* arr, Value value) {
 }
 
 void printValue(Value value) {
-    printf("%g", value);
+    if (IS_NUMBER(value)) {
+        printf("%g", AS_NUMBER(value));
+    } else if (IS_BOOL(value)) {
+        if (AS_BOOL(value)) {
+            printf("true");
+        } else {
+            printf("false");
+        }
+    } else if (IS_NIL(value)) {
+        printf("nil");
+    }
 }
