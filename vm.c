@@ -66,9 +66,11 @@ Value peek(int i) {
 void initVM() {
     resetStack();
     vm.objects = NULL;
+    initTable(&vm.strings);
 }
 
 void freeVM() {
+    freeTable(&vm.strings);
     freeObjects();
 }
 
