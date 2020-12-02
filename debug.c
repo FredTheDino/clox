@@ -5,6 +5,12 @@ static int simpleInstruction(const char* name, int offset) {
     return offset + 1;
 }
 
+static int byteInstruction(const char* name, Chunk *chunk, int offset) {
+    uint8_t slot = chunk->code[offset + 1];
+    printf("%-16s %4d\n", name, slot);
+    return offset + 2;
+}
+
 static int constantInstruction(const char* name, Chunk *chunk, int offset) {
     bool is_long = chunk->code[offset] == OP_CONSTANT_LONG;
     int addr;
@@ -44,7 +50,6 @@ int disassembleInstruction(Chunk* chunk, int offset) {
         SIMPLE(OP_NIL);
         SIMPLE(OP_TRUE);
         SIMPLE(OP_FALSE);
-        SIMPLE(OP_RETURN);
         SIMPLE(OP_ADD);
         SIMPLE(OP_SUBTRACT);
         SIMPLE(OP_MULTIPLY);
@@ -58,6 +63,18 @@ int disassembleInstruction(Chunk* chunk, int offset) {
             return constantInstruction("OP_CONSTANT", chunk, offset);
         case OP_CONSTANT_LONG:
             return constantInstruction("OP_CONSTANT_LONG", chunk, offset);
+        case OP_SET_LOCAL:
+            return byteInstruction("OP_SET_LOCAL", chunk, offset);
+        case OP_GET_LOCAL:
+            return byteInstruction("OP_GET_LOCAL", chunk, offset);
+        case OP_SET_GLOBAL:
+            return constantInstruction("OP_SET_GLOBAL", chunk, offset);
+        case OP_GET_GLOBAL:
+            return constantInstruction("OP_GET_GLOBAL", chunk, offset);
+        SIMPLE(OP_PRINT);
+        SIMPLE(OP_RETURN);
+        SIMPLE(OP_POP);
+        SIMPLE(OP_DEFINE_GLOBAL);
         default:
             printf("%d - Unknown opcode\n", instruction);
             return offset + 1;
