@@ -76,15 +76,24 @@ void freeVM() {
     freeObjects();
 }
 
-static InterpretResult run() {
-    Value *consts = vm.chunk->constants.values;
 #define READ_BYTE() (*vm.ip++)
+#define READ_SHORT() \
+    (vm.ip += 2, (uint16_t)((vm.ip[-2] << 8 | vm.ip[-1])))
 #define READ_CONSTANT() (consts[READ_BYTE()])
 #define READ_CONSTANT_LONG() (consts[READ_BYTE() \
                               | READ_BYTE() << 0x08 \
                               | READ_BYTE() << 0x10 \
                               ])
 #define READ_STRING() AS_STRING(READ_CONSTANT())
+
+static uint16_t read_short() {
+    uint16_t b = READ_BYTE();
+    uint16_t a = READ_BYTE();
+    return (b << 8) | a;
+}
+
+static InterpretResult run() {
+    Value *consts = vm.chunk->constants.values;
 
 #define BINARY_OP(valueType, oper) \
     do {\
@@ -199,12 +208,30 @@ static InterpretResult run() {
                 printf("\n");
                 break;
             }
+            case OP_LOOP: {
+                uint16_t offset = READ_SHORT();
+                vm.ip -= offset;
+                break;
+            }
+            case OP_JUMP: {
+                uint16_t offset = READ_SHORT();
+                vm.ip += offset;
+                break;
+            }
+            case OP_JUMP_IF_FALSE: {
+                uint16_t offset = READ_SHORT();
+                if (isFalsey(peek(0))) {
+                    vm.ip += offset;
+                }
+                break;
+            }
             case OP_RETURN: {
                 return INTERPRET_OK;
             }
         }
     }
 #undef READ_BYTE
+#undef READ_SHORT
 #undef READ_CONSTANT
 #undef READ_CONSTANT_LONG
 #undef READ_STRING
