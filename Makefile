@@ -1,4 +1,4 @@
-CFLAGS=-std=c11 -Wpedantic -g
+CFLAGS=-std=c11 -Wpedantic -O3
 
 .PHONY: clox default
 

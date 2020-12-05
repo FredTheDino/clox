@@ -43,7 +43,9 @@ static void repl() {
             printf("\n");
             break;
         }
-        interpret(line);
+        if (interpret(line) == INTERPRET_RUNTIME_ERROR) {
+            printf("RUNTIME ERROR\n");
+        }
     }
 }
 
