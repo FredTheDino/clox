@@ -1,0 +1,6 @@
+fun a(b) {
+    print b + 1;
+    return b;
+}
+
+print a(0);
