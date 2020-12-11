@@ -1,10 +1,20 @@
 var x = "global";
+var setSomething;
 fun outer() {
     var x = "outer";
-    fun inner() {
-        print x;
+    fun middle() {
+        fun inner() {
+            print x;
+        }
+        return inner;
     }
-    inner();
+    fun update() {
+        x = "Crazy!";
+    }
+    setSomething = update;
+    return middle;
 }
 
-outer();
+var middle = outer();
+setSomething();
+middle()();
