@@ -10,9 +10,15 @@
 static Obj* allocateObject(size_t size, ObjType type) {
     Obj* object = (Obj*) reallocate(NULL, 0, size);
     object->type = type;
-
     object->next = vm.objects;
+    object->isMarked = false;
+
     vm.objects = object;
+
+#ifdef DEBUG_LOG_GC
+    printf("%p allocate %ld for %d\n", (void*)object, size, type);
+#endif
+
     return object;
 }
 
@@ -39,6 +45,13 @@ ObjFunction* newFunction() {
     return function;
 }
 
+ObjInstance* newInstance(ObjClass* klass) {
+    ObjInstance* instance = ALLOCATE_OBJ(ObjInstance, OBJ_INSTANCE);
+    instance->klass = klass;
+    initTable(&instance->fields);
+    return instance;
+}
+
 ObjNative* newNative(NativeFn function) {
     ObjNative* native = ALLOCATE_OBJ(ObjNative, OBJ_NATIVE);
     native->function = function;
@@ -51,9 +64,17 @@ static ObjString* allocateString(char* chars, int length, uint32_t hash) {
     string->chars = chars;
     string->hash = hash;
 
+    push(OBJ_VAL(string));
     tableSet(&vm.strings, string, NIL_VAL);
+    pop();
 
     return string;
+}
+
+ObjClass* newClass(ObjString* name) {
+    ObjClass* klass = ALLOCATE_OBJ(ObjClass, OBJ_CLASS);
+    klass->name = name;
+    return klass;
 }
 
 static uint32_t hashString(const char* key, int length) {
@@ -118,8 +139,14 @@ void printObject(Value value) {
         case OBJ_NATIVE:
             printf("<native fn>");
             break;
+        case OBJ_CLASS:
+            printf("%s", AS_CLASS(value)->name->chars);
+            break;
         case OBJ_FUNCTION:
             printFunction(AS_FUNCTION(value));
+            break;
+        case OBJ_INSTANCE:
+            printf("%s instance", AS_INSTANCE(value)->klass->name->chars);
             break;
         case OBJ_CLOSURE:
             printFunction(AS_CLOSURE(value)->function);

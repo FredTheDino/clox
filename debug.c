@@ -78,6 +78,12 @@ int disassembleInstruction(Chunk* chunk, int offset) {
             return constantInstruction("OP_CONSTANT", chunk, offset);
         case OP_CONSTANT_LONG:
             return constantInstruction("OP_CONSTANT_LONG", chunk, offset);
+        case OP_CLASS:
+            return constantInstruction("OP_CLASS", chunk, offset);
+        case OP_GET_PROPERTY:
+            return constantInstruction("OP_GET_PROPERTY", chunk, offset);
+        case OP_SET_PROPERTY:
+            return constantInstruction("OP_SET_PROPERTY", chunk, offset);
         case OP_CALL:
             return byteInstruction("OP_CALL", chunk, offset);
         case OP_CLOSURE: {

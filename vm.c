@@ -64,20 +64,6 @@ static bool isFalsey(Value value) {
         || (IS_NUMBER(value) && AS_NUMBER(value) == 0);
 }
 
-static void concatenate() {
-    ObjString* b = AS_STRING(pop());
-    ObjString* a = AS_STRING(pop());
-
-    int length = a->length + b->length;
-    char* chars = ALLOCATE(char, length + 1);
-    memcpy(chars, a->chars, a->length);
-    memcpy(chars + a->length, b->chars, b->length);
-    chars[length] = '\0';
-
-    ObjString* result = takeString(chars, length);
-    push(OBJ_VAL(result));
-}
-
 Value pop() {
     ASSERT(vm.stack != vm.stackTop, "No value on stack!");
     vm.stackTop--;
@@ -87,6 +73,22 @@ Value pop() {
 Value peek(int i) {
     // ASSERT(vm.stack - vm.stackTop + 1> i, "Cannot find value on stack!");
     return vm.stackTop[-i - 1];
+}
+
+static void concatenate() {
+    ObjString* b = AS_STRING(peek(0));
+    ObjString* a = AS_STRING(peek(1));
+
+    int length = a->length + b->length;
+    char* chars = ALLOCATE(char, length + 1);
+    memcpy(chars, a->chars, a->length);
+    memcpy(chars + a->length, b->chars, b->length);
+    chars[length] = '\0';
+
+    ObjString* result = takeString(chars, length);
+    pop();
+    pop();
+    push(OBJ_VAL(result));
 }
 
 static bool call(ObjClosure* closure, int argCount) {
@@ -112,6 +114,11 @@ static bool call(ObjClosure* closure, int argCount) {
 static bool callValue(Value callee, int argCount) {
     if (IS_OBJ(callee)) {
         switch (OBJ_TYPE(callee)) {
+            case OBJ_CLASS: {
+                ObjClass* klass = AS_CLASS(callee);
+                vm.stackTop[-argCount - 1] = OBJ_VAL(newInstance(klass));
+                return true;
+            }
             case OBJ_CLOSURE:
                 return call(AS_CLOSURE(callee), argCount);
             case OBJ_NATIVE: {
@@ -169,6 +176,11 @@ static void closeUpvalues(Value* last) {
 void initVM() {
     resetStack();
     vm.objects = NULL;
+
+    vm.grayCount = 0;
+    vm.grayCapacity = 0;
+    vm.grayStack = NULL;
+
     initTable(&vm.globals);
     initTable(&vm.strings);
 
@@ -364,6 +376,44 @@ static InterpretResult run() {
                     frame->ip += offset;
                 }
                 break;
+            }
+            case OP_CLASS: {
+                ObjString* name = READ_STRING();
+                push(OBJ_VAL(newClass(name)));
+                break;
+            }
+
+            case OP_SET_PROPERTY: {
+                if (!IS_INSTANCE(peek(1))) {
+                    runtimeError("Only instances have properties.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                ObjInstance* instance = AS_INSTANCE(peek(1));
+                tableSet(&instance->fields, READ_STRING(), peek(0));
+
+                Value value = pop();
+                pop();
+                push(value);
+                break;
+            }
+
+            case OP_GET_PROPERTY: {
+                if (!IS_INSTANCE(peek(0))) {
+                    runtimeError("Only instances have properties.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                ObjInstance* instance = AS_INSTANCE(peek(0));
+                ObjString* name = READ_STRING();
+
+                Value value;
+                if (tableGet(&instance->fields, name, &value)) {
+                    pop();
+                    push(value);
+                    break;
+                }
+
+                runtimeError("Undefined property '%s'.", name->chars);
+                return INTERPRET_RUNTIME_ERROR;
             }
             case OP_RETURN: {
                 Value result = pop();
