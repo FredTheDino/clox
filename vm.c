@@ -173,6 +173,13 @@ static void closeUpvalues(Value* last) {
     }
 }
 
+static void defineMethod(ObjString* name) {
+    Value method = peek(0);
+    ObjClass* klass = AS_CLASS(peek(1));
+    tableSet(&klass->methods, name, method);
+    pop();
+}
+
 void initVM() {
     resetStack();
     vm.objects = NULL;
@@ -380,6 +387,11 @@ static InterpretResult run() {
             case OP_CLASS: {
                 ObjString* name = READ_STRING();
                 push(OBJ_VAL(newClass(name)));
+                break;
+            }
+
+            case OP_METHOD: {
+                defineMethod(READ_STRING());
                 break;
             }
 
