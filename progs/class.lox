@@ -3,6 +3,11 @@ var toast = Toast();
 print toast.jam = "grape";
 
 class Brunch {
+    init() {
+        this.hello = "Hello";
+        this.world = "World";
+    }
+
     bacon() {
         print this.hello;
     }

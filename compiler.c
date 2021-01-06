@@ -192,7 +192,6 @@ static void emitReturn() {
     } else {
         emitByte(OP_NIL);
     }
-    emitByte(OP_NIL);
     emitByte(OP_RETURN);
 }
 
