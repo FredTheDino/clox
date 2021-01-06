@@ -3,6 +3,18 @@ var toast = Toast();
 print toast.jam = "grape";
 
 class Brunch {
-    bacon() {}
-    eggs() {}
+    bacon() {
+        print this.hello;
+    }
+
+    eggs() {
+        print this.world;
+    }
 }
+
+var a = Brunch();
+a.hello = "Hello";
+a.world = "World";
+a.bacon();
+var e = a.eggs;
+e();

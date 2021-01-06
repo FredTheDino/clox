@@ -2,6 +2,7 @@
 
 #include "object.h"
 #include "memory.h"
+#include "value.h"
 #include "vm.h"
 
 #define ALLOCATE_OBJ(type, objectType)\
@@ -20,6 +21,14 @@ static Obj* allocateObject(size_t size, ObjType type) {
 #endif
 
     return object;
+}
+
+ObjBoundMethod* newBoundMethod(Value reciver, ObjClosure* method) {
+    ObjBoundMethod* bound = ALLOCATE_OBJ(ObjBoundMethod,
+                                         OBJ_BOUND_METHOD);
+    bound->reciver = reciver;
+    bound->method = method;
+    return bound;
 }
 
 ObjClosure* newClosure(ObjFunction* function) {
@@ -154,6 +163,9 @@ void printObject(Value value) {
             break;
         case OBJ_UPVALUE:
             printf("upvalue");
+            break;
+        case OBJ_BOUND_METHOD:
+            printFunction(AS_BOUND_METHOD(value)->method->function);
             break;
         default:
             ASSERT(false, "UNREACHABLE!");
