@@ -541,7 +541,7 @@ static void classDeclaration() {
         method();
     }
     consume(TOKEN_RIGHT_BRACE, "Expect '}' before class body.");
-    emitBytes(OP_POP);
+    emitByte(OP_POP);
 }
 
 static void funDeclaration() {

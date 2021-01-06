@@ -88,6 +88,8 @@ int disassembleInstruction(Chunk* chunk, int offset) {
             return constantInstruction("OP_SET_PROPERTY", chunk, offset);
         case OP_CALL:
             return byteInstruction("OP_CALL", chunk, offset);
+        case OP_DEFINE_GLOBAL:
+            return constantInstruction("OP_DEFINE_GLOBAL", chunk, offset);
         case OP_CLOSURE: {
             offset++;
             uint8_t constant = chunk->code[offset++];
@@ -120,7 +122,6 @@ int disassembleInstruction(Chunk* chunk, int offset) {
         SIMPLE(OP_PRINT);
         SIMPLE(OP_RETURN);
         SIMPLE(OP_POP);
-        SIMPLE(OP_DEFINE_GLOBAL);
         default:
             printf("%d - Unknown opcode\n", instruction);
             return offset + 1;
